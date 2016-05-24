@@ -4,7 +4,9 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "start": "babel-node index.js",
+        "test": "mocha --compilers js:babel-core/register  --require ./test/test_helper.js  --recursive",
+        "test:watch": "npm run test -- --watch"
     },
     "repository": {
         "type": "git",
@@ -25,10 +27,12 @@
         "mocha": "^2.5.2"
     },
     "babel": {
-        "presets": ["es2015"]
+        "presets": [
+            "es2015"
+        ]
     },
-    "scripts": {
-        "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js  --recursive",
-        "test:watch": "npm run test -- --watch"
+    "dependencies": {
+        "redux": "^3.5.2",
+        "socket.io": "^1.4.6"
     }
 }
